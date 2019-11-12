@@ -13,12 +13,35 @@ class TechList extends Component {
     state = {
         newTech: '',
         techs: [
-            'Node.js',
-            'ReacjJS',
-            'React Native',
-            'Lucas JS'
+            // 'Node.js',
+            // 'ReacjJS',
+            // 'React Native',
+            // 'Lucas JS'
         ]
     };
+
+    // Execita assim que o componente aparece na tela
+    componentDidMount() {
+        const techs = localStorage.getItem('techs');
+
+        if(techs){
+            this.setState({ techs: JSON.parse(techs) });
+        }
+    }
+
+    // Executa sempre que houver alterações nas props ou estado 
+    componentDidUpdate(prevProps, prevState) {
+
+        if(prevState.techs !== this.state.techs){
+            localStorage.setItem('techs', JSON.stringify(this.state.techs));
+        }
+
+    }
+
+    // Executa quando o componente deixa de existir 
+    componentWillMount() {
+
+    }
 
     handleInputChange = e => {
         // console.log(e.target.value);
