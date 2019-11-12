@@ -4,6 +4,12 @@ import TechItem from './Techitem';
 
 class TechList extends Component {
 
+
+    // Teste
+    // static defaultProps = {
+    //     tech: 'Oculto'
+    // };
+
     state = {
         newTech: '',
         techs: [
@@ -49,6 +55,7 @@ class TechList extends Component {
                         //     <button onClick={ () => this.handleDelete(tech)} type="button">Remover</button>
                         // </li>
                     ))}
+                    <TechItem />
                 </ul>  
                 <input 
                 type="text" 
